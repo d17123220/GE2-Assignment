@@ -42,7 +42,7 @@ public class FleetEntrance : MonoBehaviour
 
 
         // wait for small delay for it to finalize
-        yield return new  WaitForSeconds(2.0f);
+        yield return new  WaitForSeconds(7.0f);
 
         // create a path
         patrolPath = CreatePath();
@@ -63,23 +63,31 @@ public class FleetEntrance : MonoBehaviour
         GameObject navPoint;
         navPoint = GameObject.Instantiate<GameObject>(navpointObject);
         navPoint.transform.position = this.transform.position + this.transform.forward * 4600.0f;
+        navPoint.transform.rotation = this.transform.rotation;
         navPoint.transform.parent = pathHead.transform;
         
+        GameObject lastPont;
+        float maxAngle;
+
         // spawn navpoints next 5 will be slightly randomized
         for (int i=0; i<5; i++)
         {
+            lastPont = navPoint;
 
-
+            // forward units to travel based on direction of last navpoint
             float forward = 20000.0f;
-            float up = Random.Range(-1000.0f, 1000.0f);
-            float right = Random.Range(-1000.0f, 1000.0f);
+            
+            if (i == 0)
+                maxAngle = 15.0f;  //Mathf.PI / 6.0f; // 30 degrees
+            else
+                maxAngle = 80.0f;  //4.0f * Mathf.PI / 9.0f; // 80 degrees
+            
+
+            lastPont.transform.Rotate(new Vector3(Random.Range(-1*maxAngle, maxAngle), Random.Range(-1*maxAngle,maxAngle), 0));
 
             navPoint = GameObject.Instantiate<GameObject>(navpointObject); 
-            navPoint.transform.position = this.transform.position 
-                                          + this.transform.forward * 4600.0f
-                                          + this.transform.forward * forward * (float)(i+1)
-                                          + this.transform.up * up
-                                          + this.transform.right * right; 
+            navPoint.transform.position = lastPont.transform.position + lastPont.transform.forward * forward;
+            navPoint.transform.rotation = lastPont.transform.rotation;
             navPoint.transform.parent = pathHead.transform;
         }
 
@@ -90,11 +98,64 @@ public class FleetEntrance : MonoBehaviour
         return pathHead;
     }
 
+    public void DestroyVortex()
+    {
+        if (null != spaceVortex)
+        {
+            Destroy(spaceVortex);
+            spaceVortex = null;
+        }
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        // if can spawn ships now - meaning vortex is open and patrol path created
+        if (canSpawnShips)
+        {
+
+            
+            // if already 3 ships spawned
+            if (spawnedShips.Count == 3)
+            {
+                canSpawnShips = false;
+                Invoke("DestroyVortex", 3.0f);
+            }
+            else
+            {
+                // get distance to the closest ship
+                float minDistance = -1.0f;
+                float curDistance = 0.0f;
+
+                // parse each ship
+                foreach (GameObject ship in spawnedShips)
+                {
+                    // get distance to the ship
+                    curDistance = Vector3.Distance(this.transform.position, ship.transform.position);
+                    // get the minimal distance, which is less than minDistance and not -1
+                    if (minDistance == -1.0f || curDistance < minDistance)
+                        minDistance = curDistance;  
+                }
+
+                // 12000 is a minimum distance ship need to travel before next one is spawned
+                if (minDistance >= 12000.0f || minDistance == -1.0f)
+                {
+                    GameObject ship =  GameObject.Instantiate<GameObject>(bigShipObject);
+                    ship.transform.rotation = this.transform.rotation;
+                    ship.transform.position = this.transform.position + this.transform.forward * 4500.0f;
+                    // adjust offset off path only for second and third ship
+                    if (spawnedShips.Count > 0)
+                    {
+                        ship.GetComponent<PathFollowBehaviour>().radiusOffset = 2500.0f;
+                        ship.GetComponent<PathFollowBehaviour>().angleOffset = Random.Range(0.0f, 2 * Mathf.PI); 
+                    }
+                    ship.GetComponent<PathFollowBehaviour>().path = patrolPath.GetComponent<Path>();
+                    ship.GetComponent<PathFollowBehaviour>().StartFollowing();
+
+                    spawnedShips.Add(ship);
+                }
+            }
+        }
     }
 }

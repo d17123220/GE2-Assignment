@@ -7,7 +7,6 @@ public class Path : MonoBehaviour
 
     public List<Vector3> waypoints = new List<Vector3>();
 
-    public int next = 0;
     public bool looped = false;
 
     public void OnDrawGizmos()
@@ -46,27 +45,13 @@ public class Path : MonoBehaviour
 		
 	}
 
-    public Vector3 NextWaypoint()
+    public Vector3 NextWaypoint(int next)
     {
         return waypoints[next];
     }
 
-    public void AdvanceToNext()
-    {
-        if (looped)
-        {
-            next = (next + 1) % waypoints.Count;
-        }
-        else
-        {
-            if (next != waypoints.Count - 1)
-            {
-                next++;
-            }
-        }
-    }
-
-    public bool IsLast()
+ 
+    public bool IsLast(int next)
     {
         return next == waypoints.Count - 1;
     }

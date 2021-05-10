@@ -40162,9 +40162,9 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   mass: 1
   damping: 0.01
-  banking: 0.1
-  maxSpeed: 5
-  maxForce: 10
+  banking: 0.005
+  maxSpeed: 500
+  maxForce: 150
 --- !u!114 &725500838157851962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40180,7 +40180,6 @@ MonoBehaviour:
   weight: 1
   force: {x: 0, y: 0, z: 0}
   boid: {fileID: 0}
-  targetGameObject: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
 --- !u!114 &2482453654675178311
 MonoBehaviour:
@@ -40198,7 +40197,10 @@ MonoBehaviour:
   force: {x: 0, y: 0, z: 0}
   boid: {fileID: 0}
   path: {fileID: 0}
-  waypointDistance: 5
+  angleOffset: 0
+  radiusOffset: 0
+  nextPoint: 0
+  waypointDistance: 2000
 --- !u!114 &185786030058309035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40224,6 +40226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fcd89fce5463742828d8085cc30d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeVortex: 0
 --- !u!1 &3968030622408156750
 GameObject:
   m_ObjectHideFlags: 0

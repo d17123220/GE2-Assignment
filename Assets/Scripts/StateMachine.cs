@@ -10,7 +10,8 @@ public abstract class State
     public virtual void Think() { }
 }
 
-public class StateMachine : MonoBehaviour {
+public class StateMachine : MonoBehaviour 
+{
 
     public State currentState;
     public State previousState;
@@ -75,7 +76,7 @@ public class StateMachine : MonoBehaviour {
         }
         currentState = newState;
         currentState.owner = this;
-        Debug.Log(currentState.GetType());
+        //Debug.Log(currentState.GetType());
         currentState.Enter();
     }
 
