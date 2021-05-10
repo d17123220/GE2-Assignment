@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Narn_Big_Ship
   layers:
   - Default
   - TransparentFX

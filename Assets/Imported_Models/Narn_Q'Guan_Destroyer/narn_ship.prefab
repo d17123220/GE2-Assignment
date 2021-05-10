@@ -40125,7 +40125,7 @@ GameObject:
   - component: {fileID: 7989477055124950988}
   m_Layer: 0
   m_Name: narn_ship
-  m_TagString: Untagged
+  m_TagString: Narn_Big_Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40160,7 +40160,7 @@ MonoBehaviour:
   force: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
-  mass: 1
+  mass: 10
   damping: 0.01
   banking: 0.005
   maxSpeed: 500
@@ -40200,7 +40200,7 @@ MonoBehaviour:
   angleOffset: 0
   radiusOffset: 0
   nextPoint: 0
-  waypointDistance: 2000
+  waypointDistance: 5000
 --- !u!114 &185786030058309035
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -31,13 +31,9 @@ public class PlayScene : MonoBehaviour
             delay += 4.0f;
         }
         
+        mainCamera.GetComponent<CameraFollow>().StartFollowing();
 
     }
-
-
-
-
-
 
     // Update is called once per frame
     void Update()
