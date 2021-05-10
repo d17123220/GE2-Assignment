@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 467776710}
+  - component: {fileID: 467776711}
   m_Layer: 0
   m_Name: Vortex
   m_TagString: Untagged
@@ -153,6 +154,23 @@ Transform:
   m_Father: {fileID: 984372169}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467776711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467776709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f082e01073d3f49b064fc6cb92f448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathObject: {fileID: 8062804859400486831, guid: e3b30e5cffaef4844b5196c0ff7eb157, type: 3}
+  bigShipObject: {fileID: 3965461309983141963, guid: b14b9aa19c86af840b21aa663a45d00f, type: 3}
+  smallShipObject: {fileID: 7088102935351932427, guid: 2881fe2e255a0904e8d13aed7efaaf1b, type: 3}
+  vortexObject: {fileID: 1356956627097641785, guid: 26005521e1ef9d24a94071048f8baf78, type: 3}
+  canSpawnShips: 0
 --- !u!1 &794667955
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +346,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 10000
+  far clip plane: 20000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -390,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9c4fb6a97e18743842a76263960523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fleetSpawn: {fileID: 0}
+  fleetSpawn: {fileID: 984372168}
 --- !u!4 &1419106956
 Transform:
   m_ObjectHideFlags: 0
@@ -414,6 +432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2092840994}
+  - component: {fileID: 2092840995}
   m_Layer: 0
   m_Name: Vortex
   m_TagString: Untagged
@@ -435,3 +454,20 @@ Transform:
   m_Father: {fileID: 984372169}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2092840995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092840993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f082e01073d3f49b064fc6cb92f448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathObject: {fileID: 8062804859400486831, guid: e3b30e5cffaef4844b5196c0ff7eb157, type: 3}
+  bigShipObject: {fileID: 3965461309983141963, guid: b14b9aa19c86af840b21aa663a45d00f, type: 3}
+  smallShipObject: {fileID: 7088102935351932427, guid: 2881fe2e255a0904e8d13aed7efaaf1b, type: 3}
+  vortexObject: {fileID: 1356956627097641785, guid: 26005521e1ef9d24a94071048f8baf78, type: 3}
+  canSpawnShips: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayScene : MonoBehaviour
 {
-    public Transform fleetSpawn;
+    public GameObject fleetSpawn;
     private GameObject mainCamera;
     
     // Start is called before the first frame update
@@ -23,6 +23,13 @@ public class PlayScene : MonoBehaviour
 
     public void SpawnFleet()
     {
+        float delay = 0.0f;
+        foreach (Transform child in fleetSpawn.transform)
+        {
+            // tell vortex to start spawning, and then next one start with increased delay
+            child.GetComponent<FleetEntrance>().StartSpawn(delay);
+            delay += 4.0f;
+        }
         
 
     }
