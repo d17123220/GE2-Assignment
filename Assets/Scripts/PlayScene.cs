@@ -23,7 +23,7 @@ public class PlayScene : MonoBehaviour
 
     public void SpawnFleet()
     {
-        float vortexDistance = 10.0f;
+        
 
     }
 

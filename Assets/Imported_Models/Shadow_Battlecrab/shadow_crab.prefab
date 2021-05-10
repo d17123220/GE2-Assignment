@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 1019152484395938501}
   - component: {fileID: 4146436871518387552}
   - component: {fileID: 2193232214789949866}
+  - component: {fileID: 639503711751348904}
   m_Layer: 0
   m_Name: shadow_crab
   m_TagString: Untagged
@@ -246,6 +247,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &639503711751348904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391550815792277631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e37e2550888fe749b35ad16b3605d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: {x: 0, y: 0, z: 0}
+  acceleration: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  mass: 1
+  damping: 0.01
+  banking: 0.1
+  maxSpeed: 5
+  maxForce: 10
 --- !u!1 &425763811020060491
 GameObject:
   m_ObjectHideFlags: 0
