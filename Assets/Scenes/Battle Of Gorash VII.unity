@@ -170,6 +170,7 @@ MonoBehaviour:
   bigShipObject: {fileID: 3965461309983141963, guid: b14b9aa19c86af840b21aa663a45d00f, type: 3}
   smallShipObject: {fileID: 7088102935351932427, guid: 2881fe2e255a0904e8d13aed7efaaf1b, type: 3}
   vortexObject: {fileID: 1356956627097641785, guid: 26005521e1ef9d24a94071048f8baf78, type: 3}
+  navpointObject: {fileID: 5974993143839888253, guid: 4baa8f17dffe6dd41a1cde8b6593526f, type: 3}
   canSpawnShips: 0
 --- !u!1 &794667955
 GameObject:
@@ -470,4 +471,5 @@ MonoBehaviour:
   bigShipObject: {fileID: 3965461309983141963, guid: b14b9aa19c86af840b21aa663a45d00f, type: 3}
   smallShipObject: {fileID: 7088102935351932427, guid: 2881fe2e255a0904e8d13aed7efaaf1b, type: 3}
   vortexObject: {fileID: 1356956627097641785, guid: 26005521e1ef9d24a94071048f8baf78, type: 3}
+  navpointObject: {fileID: 5974993143839888253, guid: 4baa8f17dffe6dd41a1cde8b6593526f, type: 3}
   canSpawnShips: 0

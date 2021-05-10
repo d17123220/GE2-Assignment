@@ -27,13 +27,18 @@ public class Path : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+
+	}
+
+    public void InitializePath()
+    {
         waypoints.Clear();
         int count = transform.childCount;
         for (int i = 0; i < count; i++)
         {
             waypoints.Add(transform.GetChild(i).position);
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
